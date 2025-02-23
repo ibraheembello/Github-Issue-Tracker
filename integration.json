@@ -1,0 +1,46 @@
+{
+    "name": "Github Monitor",
+    "description": "Monitor Github repository activities and send updates to Telex channels",
+    "type": "interval",
+    "settings": [
+      {
+        "label": "github_token",
+        "type": "text",
+        "description": "Github Personal Access Token",
+        "required": true
+      },
+      {
+        "label": "repository",
+        "type": "text",
+        "description": "Repository name (format: owner/repo)",
+        "required": true
+      },
+      {
+        "label": "interval",
+        "type": "text",
+        "description": "Check interval (crontab format)",
+        "required": true,
+        "default": "*/30 * * * *"
+      },
+      {
+        "label": "track_issues",
+        "type": "checkbox",
+        "description": "Track issue updates",
+        "default": true
+      },
+      {
+        "label": "track_prs",
+        "type": "checkbox",
+        "description": "Track pull request updates",
+        "default": true
+      },
+      {
+        "label": "track_commits",
+        "type": "checkbox",
+        "description": "Track commit updates",
+        "default": false
+      }
+    ],
+    "tick_url": "/api/check",
+    "target_url": "/api/webhook"
+  }
